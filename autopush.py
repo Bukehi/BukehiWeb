@@ -2,7 +2,7 @@ import time
 import subprocess
 
 subprocess.call(['git', 'add', '.'])
-subprocess.call(['git', 'commit', '-m', '提交更新'])
+subprocess.call(['git', 'commit', '-m', '"upgrade commit"'])
 for i in range(9):
     result = subprocess.run(['git', 'push', 'school', 'main'],
 
