@@ -9,7 +9,7 @@ content_3 = quanwang.quanwang()
 now = str(datetime.now())
 now = now[0:19]
 
-with open('./livefile/resou.txt', 'w') as f:
+with open('./livefile/resou.txt', 'w', encoding='utf-8') as f:
     f.write(f"该内容更新于 {now}\n全网热搜\n" + content_3 + "微博热搜\n" +
             content_1 + "百度热搜\n" + content_2)
 
