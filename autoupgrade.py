@@ -9,13 +9,13 @@ content_3 = quanwang.quanwang()
 now = str(datetime.now())
 now = now[0:19]
 
-with open('./livefile/resou.txt', 'w', encoding='utf-8') as f:
+with open('./livefile/热搜.txt', 'w', encoding='utf-8') as f:
     f.write(f"该内容更新于 {now}\n全网热搜\n" + content_3 + "微博热搜\n" +
             content_1 + "百度热搜\n" + content_2)
 
-subprocess.call(['git', 'add', 'livefile/resou.txt'])
+subprocess.call(['git', 'add', 'livefile/热搜.txt'])
 # subprocess.call(['git', 'add', 'autoupgrade.py'])
-subprocess.call(['git', 'commit', '-m', '提交更新'])
+subprocess.call(['git', 'commit', '-m', 'upgrade commit'])
 
 for i in range(9):
     result = subprocess.run(['git', 'push', 'school', 'main'],
