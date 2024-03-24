@@ -1,4 +1,4 @@
-from ex import weibo, baidu, quanwang
+from ex import weibo, baidu, quanwang, douyin
 import time
 from datetime import datetime
 import subprocess
@@ -6,12 +6,13 @@ import subprocess
 content_1 = weibo.weibo()
 content_2 = baidu.baidu()
 content_3 = quanwang.quanwang()
+content_4 = douyin.douyin()
 now = str(datetime.now())
 now = now[0:19]
 
 with open('./livefile/热搜.txt', 'w', encoding='utf-8') as f:
     f.write(f"该内容更新于 {now}\n全网热搜\n" + content_3 + "微博热搜\n" +
-            content_1 + "百度热搜\n" + content_2)
+            content_1 + "百度热搜\n" + content_2 + "抖音热搜\n" + content_4)
 
 subprocess.call(['git', 'add', 'livefile/热搜.txt'])
 # subprocess.call(['git', 'add', 'autoupgrade.py'])
