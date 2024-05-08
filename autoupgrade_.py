@@ -1,6 +1,7 @@
 from ex import resou, rmrb, weather
 from datetime import datetime
 import time
+import requests
 import configparser
 
 # 读取配置文件
@@ -10,10 +11,11 @@ upgradedate = config['date']['upgradedate']
 date = str(datetime.now())[:10]
 
 if not upgradedate == date:
-    rmrb.rmrb()
-    config.set('date', 'upgradedate', date)
-    with open('./date.ini', 'w', encoding='utf-8') as f:
-        config.write(f)
+    rmrb_bool = rmrb.rmrb()
+    if rmrb_bool:
+        config.set('date', 'upgradedate', date)
+        with open('./date.ini', 'w', encoding='utf-8') as f:
+            config.write(f)
 # 创建内容
 content_1 = resou.baidu()
 content_2 = weather.getlocalweather()

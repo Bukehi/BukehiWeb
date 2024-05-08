@@ -12,6 +12,8 @@ def rmrb():
     now_without_ = datetime.datetime.now().strftime("%Y%m%d")
     res = requests.get(
         f'http://paper.people.com.cn/rmrb/html/{now_with_}/nbs.D110000renmrb_01.htm')
+    if res.status_code == 404:
+        return False
     soup = BeautifulSoup(res.text, 'html.parser')
     ranges = len(soup.find_all('div', {'class': 'swiper-slide'}))
 
@@ -49,6 +51,7 @@ def rmrb():
         elif i >= 10:
             value = str(i)
         os.remove(f"./人民日报/人民日报{value}.pdf")
+    return True
 
 
 if __name__ == "__main__":
