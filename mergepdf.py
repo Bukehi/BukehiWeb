@@ -9,7 +9,7 @@ def merge(target_path):
     file_merger = PdfWriter()
     for pdf in tqdm(pdf_lst, desc="正在合并"):
         file_merger.append(pdf)
-    file_path = target_path+'/merge.pdf'
+    file_path = target_path+'\merge.pdf'
     file_merger.write(file_path)
 
 if __name__ == "__main__":
